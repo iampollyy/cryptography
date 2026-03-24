@@ -38,8 +38,8 @@
 
 ## Screenshots
 
-![Screenshot 1](image-1.png)
+![Screenshot 1](image1.png)
 
-![Screenshot 2](image-2.png)
+![Screenshot 2](image2.png)
 
-![Screenshot 3](image-3.png)
+![Screenshot 3](image3.png)
