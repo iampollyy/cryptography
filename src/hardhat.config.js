@@ -3,7 +3,7 @@ require("@nomiclabs/hardhat-ethers");
 require("dotenv").config({ path: "../.env" });
 
 module.exports = {
-  solidity: "0.8.20",
+  solidity: "0.8.23",
   networks: {
     arbitrumSepolia: {
       url: process.env.ARBITRUM_SEPOLIA_RPC_URL || "",

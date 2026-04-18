@@ -1,0 +1,10 @@
+{
+  "network": "arbitrumSepolia",
+  "deployer": "0x851E86F03b4109bc4890669A6a3Be99a2eE7E7c3",
+  "v1Implementation": "0x004F4536BB53C7A46Ac8e2b7255Dc2cF10C7dcDA",
+  "proxy": "0x12B4a7F92bFDd368B21f4feC280Dcc7686d2336a",
+  "v2Implementation": "0x6C70B72597dE5522b9308406C3a7cFC577d73922",
+  "mintTxHash": "0xe9162e7e8b195760c30b131d6c815851d970d878a0329a893b4ed2d9f6d65f78",
+  "transferTxHash": "0x193d6eac5937e3e4e48bc87605f338fd22f0fee3d01f6914c64e77bb687458bb",
+  "upgradeTxHash": "0x63db008bae9bacd074ea9b865a8556dc516c17be18cdaa7a312fc669a0ea7f46"
+}
