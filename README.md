@@ -156,16 +156,48 @@ Submit  →  Confirm (×N)  →  Execute
 npm install
 ```
 
+### NPM Scripts
+
+The project includes convenient npm scripts for all common tasks:
+
+| Command | Description |
+|---|---|
+| `npm run compile` | Compile Solidity contracts |
+| `npm test` | Run all unit tests |
+| `npm run test:verbose` | Run tests with verbose output |
+| `npm run clean` | Remove compiled artifacts and cache |
+| `npm run deploy:local` | Deploy to the built-in Hardhat network |
+| `npm run node` | Start a persistent local Hardhat node |
+| `npm run deploy:node` | Deploy to a running local Hardhat node |
+
 ### Compile
 
 ```bash
-npx hardhat compile
+npm run compile
 ```
 
 ### Run Tests
 
 ```bash
-npx hardhat test
+npm test
+```
+
+### Deploy Locally
+
+Start a local Hardhat node in one terminal, then deploy in another:
+
+```bash
+# Terminal 1 — start local node
+npm run node
+
+# Terminal 2 — deploy to local node
+npm run deploy:node
+```
+
+Or deploy to the built-in ephemeral Hardhat network:
+
+```bash
+npm run deploy:local
 ```
 
 ## Testing
