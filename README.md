@@ -172,7 +172,7 @@ Both contracts generate metadata **fully on-chain** as Base64-encoded JSON with 
   "description": "Soulbound student visit card NFT...",
   "image": "ipfs://bafybeigo22ftjpfhs3cilqxhgbc46xhwenc7ymufl2vik4wes3ii7bfj2y",
   "attributes": [
-    { "trait_type": "Student Name", "value": "Polina Trybialustava" },
+    { "trait_type": "Student Name", "value": "Polina" },
     { "trait_type": "Course", "value": "Cryptography" },
     { "trait_type": "Type", "value": "Soulbound" }
   ]
