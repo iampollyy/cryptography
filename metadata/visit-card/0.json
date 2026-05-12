@@ -1,11 +1,11 @@
 {
-  "name": "Student Visit Card — Polina Trybialustava",
+  "name": "Student Visit Card — Polina",
   "description": "Soulbound (non-transferable) student visit card NFT for the Cryptography course. This token is permanently bound to the student's wallet and cannot be transferred.",
   "image": "ipfs://QmExampleImageHash/visit-card.png",
   "attributes": [
     {
       "trait_type": "Student Name",
-      "value": "Polina Trybialustava"
+      "value": "Polina"
     },
     {
       "trait_type": "Student ID",

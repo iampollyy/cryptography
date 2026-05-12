@@ -11,7 +11,7 @@ This project contains two Solidity smart contracts:
 
 Both contracts are built on **OpenZeppelin v5** audited implementations with **Solidity 0.8.28**.
 
-**Key feature:** All NFT images are generated **fully on-chain** as SVG graphics — no IPFS or external hosting required. The `tokenURI` / `uri` functions return `data:` URIs with embedded Base64-encoded SVG images.
+**Key feature:** The ERC-721 visit card uses a custom image hosted on **IPFS** (via Pinata). The ERC-1155 game characters use **on-chain SVG** images generated directly in the smart contract. The `tokenURI` / `uri` functions return `data:` URIs with Base64-encoded JSON metadata.
 
 ---
 
@@ -91,7 +91,7 @@ This HTML page decodes the on-chain `data:` URIs and renders all 11 NFT images (
 **Key functions:**
 | Function | Access | Description |
 |---|---|---|
-| `mintVisitCard(student, name, id, course, year)` | Owner only | Mints one soulbound NFT to the student |
+| `mintVisitCard(student, name, course)` | Owner only | Mints one soulbound NFT to the student |
 | `getStudentInfo(tokenId)` | Public | Returns on-chain student metadata |
 | `tokenURI(tokenId)` | Public | Returns on-chain metadata + SVG image (data URI) |
 | `totalMinted()` | Public | Returns counter of minted cards |
@@ -100,10 +100,8 @@ This HTML page decodes the on-chain `data:` URIs and renders all 11 NFT images (
 ```javascript
 await visitCard.mintVisitCard(
   studentAddress,
-  "Polina Trybialustava",
-  "2024001",
-  "Cryptography",
-  "2024"
+  "Polina",  // studentName
+  "Cryptography"           // course
 );
 ```
 
@@ -172,16 +170,18 @@ Both contracts generate metadata **fully on-chain** as Base64-encoded JSON with 
 {
   "name": "Student Visit Card #0",
   "description": "Soulbound student visit card NFT...",
-  "image": "data:image/svg+xml;base64,...",
+  "image": "ipfs://bafybeigo22ftjpfhs3cilqxhgbc46xhwenc7ymufl2vik4wes3ii7bfj2y",
   "attributes": [
     { "trait_type": "Student Name", "value": "Polina Trybialustava" },
-    { "trait_type": "Student ID", "value": "2024001" },
     { "trait_type": "Course", "value": "Cryptography" },
-    { "trait_type": "Year", "value": "2024" },
     { "trait_type": "Type", "value": "Soulbound" }
   ]
 }
 ```
+
+- The ERC-721 image is hosted on **IPFS via Pinata**
+- CID: `bafybeigo22ftjpfhs3cilqxhgbc46xhwenc7ymufl2vik4wes3ii7bfj2y`
+- The image URI is stored in the contract and can be updated by the owner via `setImageURI()`
 
 ### ERC-1155 Character — `uri()` returns:
 
@@ -199,13 +199,16 @@ Both contracts generate metadata **fully on-chain** as Base64-encoded JSON with 
 }
 ```
 
+- ERC-1155 images are generated **fully on-chain** as SVG graphics
+- Each of the 10 characters has a unique SVG with colored stat bars, emoji icon, and rarity badge
+
 Both formats are compatible with **OpenSea** and other NFT marketplaces.
 
 ---
 
 ## Deploying to Sepolia Testnet
 
-1. Get test ETH from a [Sepolia faucet](https://sepoliafaucet.com/)
+1. Get test ETH from a [Sepolia faucet](https://cloud.google.com/application/web3/faucet)
 2. Sign up at [Alchemy](https://www.alchemy.com/) (free) and create an app for Sepolia
 3. Copy `.env.example` to `.env` and fill in your values:
 
@@ -255,4 +258,91 @@ README.md                           — This file
 - Hardhat 2.x
 - OpenZeppelin Contracts v5
 - ethers.js v6
-- On-chain SVG + Base64 metadata
+- On-chain SVG + Base64 metadata (ERC-1155)
+- IPFS via Pinata (ERC-721 image)
+
+---
+
+## Proof of Functionality
+
+### Deployed Contracts (Sepolia Testnet)
+
+| Contract | Address | Etherscan |
+|---|---|---|
+| SoulboundVisitCardERC721 | `0xF4c6B751AAD97888bFC3fa1feFCa277c7dd40f60` | [View on Etherscan](https://sepolia.etherscan.io/address/0xF4c6B751AAD97888bFC3fa1feFCa277c7dd40f60) |
+| GameCharacterCollectionERC1155 | `0x12B4a7F92bFDd368B21f4feC280Dcc7686d2336a` | [View on Etherscan](https://sepolia.etherscan.io/address/0x12B4a7F92bFDd368B21f4feC280Dcc7686d2336a) |
+
+### Transaction Hashes
+
+#### 1. Minting Soulbound Visit Card NFT to Student Wallet
+
+- **Tx Hash:** [`0x9c8e2a59e3ab4fbde4ec17e3ed6717310dc2d348477cbc7a2d279c1302a782a8`](https://sepolia.etherscan.io/tx/0x9c8e2a59e3ab4fbde4ec17e3ed6717310dc2d348477cbc7a2d279c1302a782a8)
+- **Action:** Minted 1 soulbound visit card (token #0) to student wallet `0x851E86F03b4109bc4890669A6a3Be99a2eE7E7c3`
+- **Student Name:** Polina 
+- **Course:** Cryptography
+
+**Screenshot:**
+
+![Visit Card Mint Transaction](screenshots/visit-card-mint.png)
+![Card Mint Logs](screenshots/visit-card-mint-logs.png)
+
+
+#### 2. Batch Minting 10 Game Character NFTs
+
+- **Tx Hash:** [`0xd4f46572d88e24568c2dd6f266d35d1cb96897604c1c9549ec951eae9665d66a`](https://sepolia.etherscan.io/tx/0xd4f46572d88e24568c2dd6f266d35d1cb96897604c1c9549ec951eae9665d66a)
+- **Action:** Batch-minted 10 game character NFTs (token IDs 0–9, 1 of each) to the deployer address
+- **Demonstrates:** ERC-1155 batch minting efficiency (all 10 tokens minted in a single transaction)
+
+**Screenshot:**
+
+![Batch Mint Transaction](screenshots/batch-mint.png)
+![Batch Mint Logs](screenshots/batch-mint-logs.png)
+
+#### 3. Batch Transfer of 2 Characters to Student Wallet
+
+- **Tx Hash:** [`0x2a9a18842374257a5b0a32719cdddd53f06ec6771aa7c94eefeacae8a90fcf81`](https://sepolia.etherscan.io/tx/0x2a9a18842374257a5b0a32719cdddd53f06ec6771aa7c94eefeacae8a90fcf81)
+- **Action:** Batch-transferred characters #0 (Fire Mage) and #1 (Ice Archer) to student wallet `0x851E86F03b4109bc4890669A6a3Be99a2eE7E7c3`
+- **Demonstrates:** ERC-1155 batch transfer efficiency (2 tokens transferred in a single transaction)
+
+**Screenshot:**
+
+![Batch Transfer Transaction](screenshots/batch-transfer.png)
+![Batch Transfer Transaction Logs](screenshots/batch-transfer-logs.png)
+
+
+
+### Final Token Balances
+
+| Token ID | Character | Deployer | Student |
+|---|---|---|---|
+| 0 | Fire Mage | 0 | 1 |
+| 1 | Ice Archer | 0 | 1 |
+| 2 | Shadow Rogue | 1 | 0 |
+| 3 | Earth Guardian | 1 | 0 |
+| 4 | Wind Dancer | 1 | 0 |
+| 5 | Thunder Knight | 1 | 0 |
+| 6 | Water Healer | 1 | 0 |
+| 7 | Dark Warlock | 1 | 0 |
+| 8 | Light Paladin | 1 | 0 |
+| 9 | Void Assassin | 1 | 0 |
+
+### NFT Image Previews
+
+**Screenshot:**
+
+![NFT Preview-1](screenshots/nft-preview-1.png)
+![NFT Preview-2](screenshots/nft-preview-2.png)
+
+
+### Soulbound Behavior Proof
+
+Attempting to transfer or approve the visit card NFT results in a revert:
+- `transferFrom()` → reverts with `"Soulbound: token is non-transferable"`
+- `approve()` → reverts with `"Soulbound: approvals are disabled"`
+
+**Screenshot:**
+![Soulbound Test](screenshots/soulbound-test.png)
+
+
+**Metamask Screenshot**
+![Metamask Proof] (screenshots/metamask-proof.png)

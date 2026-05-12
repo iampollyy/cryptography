@@ -1,7 +1,6 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config();
 
-/** @type import('hardhat/config').HardhatUserConfig */
 module.exports = {
   solidity: {
     version: "0.8.28",
@@ -12,9 +11,7 @@ module.exports = {
     },
   },
   networks: {
-    // Для локального тестирования используем встроенную сеть Hardhat
     hardhat: {},
-    // Тестнет Sepolia — заполни PRIVATE_KEY и SEPOLIA_RPC_URL в файле .env
     sepolia: {
       url: process.env.SEPOLIA_RPC_URL || "",
       accounts: process.env.PRIVATE_KEY ? [process.env.PRIVATE_KEY] : [],
