@@ -345,4 +345,4 @@ Attempting to transfer or approve the visit card NFT results in a revert:
 
 
 **Metamask Screenshot**
-![Metamask Proof] (screenshots/metamask-proof.png)
+![Metamask Proof](screenshots/metamask-proof.png)
