@@ -1,0 +1,11 @@
+{
+  "name": "Water Healer",
+  "description": "An uncommon water healer focused on support and healing abilities.",
+  "image": "ipfs://QmExampleImageHash/characters/6.png",
+  "attributes": [
+    { "trait_type": "Character Name", "value": "Water Healer" },
+    { "trait_type": "Rarity", "value": "Uncommon" },
+    { "trait_type": "Strength", "display_type": "number", "value": 40 },
+    { "trait_type": "Speed", "display_type": "number", "value": 60 }
+  ]
+}

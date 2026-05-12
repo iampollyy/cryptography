@@ -1,0 +1,11 @@
+{
+  "name": "Fire Mage",
+  "description": "A legendary fire mage with devastating flame attacks and moderate speed.",
+  "image": "ipfs://QmExampleImageHash/characters/0.png",
+  "attributes": [
+    { "trait_type": "Character Name", "value": "Fire Mage" },
+    { "trait_type": "Rarity", "value": "Legendary" },
+    { "trait_type": "Strength", "display_type": "number", "value": 90 },
+    { "trait_type": "Speed", "display_type": "number", "value": 60 }
+  ]
+}

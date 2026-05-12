@@ -1,0 +1,11 @@
+{
+  "name": "Light Paladin",
+  "description": "An epic light paladin with strong armor and divine strikes.",
+  "image": "ipfs://QmExampleImageHash/characters/8.png",
+  "attributes": [
+    { "trait_type": "Character Name", "value": "Light Paladin" },
+    { "trait_type": "Rarity", "value": "Epic" },
+    { "trait_type": "Strength", "display_type": "number", "value": 85 },
+    { "trait_type": "Speed", "display_type": "number", "value": 75 }
+  ]
+}

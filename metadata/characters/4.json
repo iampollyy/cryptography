@@ -1,0 +1,11 @@
+{
+  "name": "Wind Dancer",
+  "description": "An epic wind dancer with unmatched speed but lower strength.",
+  "image": "ipfs://QmExampleImageHash/characters/4.png",
+  "attributes": [
+    { "trait_type": "Character Name", "value": "Wind Dancer" },
+    { "trait_type": "Rarity", "value": "Epic" },
+    { "trait_type": "Strength", "display_type": "number", "value": 55 },
+    { "trait_type": "Speed", "display_type": "number", "value": 99 }
+  ]
+}

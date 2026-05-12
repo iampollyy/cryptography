@@ -1,0 +1,11 @@
+{
+  "name": "Shadow Rogue",
+  "description": "A rare shadow rogue, the fastest character in the collection.",
+  "image": "ipfs://QmExampleImageHash/characters/2.png",
+  "attributes": [
+    { "trait_type": "Character Name", "value": "Shadow Rogue" },
+    { "trait_type": "Rarity", "value": "Rare" },
+    { "trait_type": "Strength", "display_type": "number", "value": 65 },
+    { "trait_type": "Speed", "display_type": "number", "value": 95 }
+  ]
+}

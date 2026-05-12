@@ -1,0 +1,11 @@
+{
+  "name": "Ice Archer",
+  "description": "An epic ice archer with high agility and piercing frost arrows.",
+  "image": "ipfs://QmExampleImageHash/characters/1.png",
+  "attributes": [
+    { "trait_type": "Character Name", "value": "Ice Archer" },
+    { "trait_type": "Rarity", "value": "Epic" },
+    { "trait_type": "Strength", "display_type": "number", "value": 70 },
+    { "trait_type": "Speed", "display_type": "number", "value": 85 }
+  ]
+}

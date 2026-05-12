@@ -1,0 +1,11 @@
+{
+  "name": "Void Assassin",
+  "description": "A rare void assassin striking from the shadows with lethal precision.",
+  "image": "ipfs://QmExampleImageHash/characters/9.png",
+  "attributes": [
+    { "trait_type": "Character Name", "value": "Void Assassin" },
+    { "trait_type": "Rarity", "value": "Rare" },
+    { "trait_type": "Strength", "display_type": "number", "value": 78 },
+    { "trait_type": "Speed", "display_type": "number", "value": 90 }
+  ]
+}

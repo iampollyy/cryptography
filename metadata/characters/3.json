@@ -1,0 +1,11 @@
+{
+  "name": "Earth Guardian",
+  "description": "A legendary earth guardian, the strongest tank in the collection.",
+  "image": "ipfs://QmExampleImageHash/characters/3.png",
+  "attributes": [
+    { "trait_type": "Character Name", "value": "Earth Guardian" },
+    { "trait_type": "Rarity", "value": "Legendary" },
+    { "trait_type": "Strength", "display_type": "number", "value": 95 },
+    { "trait_type": "Speed", "display_type": "number", "value": 40 }
+  ]
+}

@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Hardhat
+cache/
+artifacts/
+typechain-types/
+
+# Environment variables (PRIVATE KEYS!)
+.env
+
+# Coverage
+coverage/
+coverage.json
+
+# Build
+build/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

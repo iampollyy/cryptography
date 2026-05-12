@@ -1,0 +1,11 @@
+{
+  "name": "Thunder Knight",
+  "description": "A rare thunder knight balancing strength and speed with electric attacks.",
+  "image": "ipfs://QmExampleImageHash/characters/5.png",
+  "attributes": [
+    { "trait_type": "Character Name", "value": "Thunder Knight" },
+    { "trait_type": "Rarity", "value": "Rare" },
+    { "trait_type": "Strength", "display_type": "number", "value": 88 },
+    { "trait_type": "Speed", "display_type": "number", "value": 70 }
+  ]
+}

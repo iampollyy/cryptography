@@ -1,0 +1,11 @@
+{
+  "name": "Dark Warlock",
+  "description": "A legendary dark warlock wielding destructive shadow magic.",
+  "image": "ipfs://QmExampleImageHash/characters/7.png",
+  "attributes": [
+    { "trait_type": "Character Name", "value": "Dark Warlock" },
+    { "trait_type": "Rarity", "value": "Legendary" },
+    { "trait_type": "Strength", "display_type": "number", "value": 92 },
+    { "trait_type": "Speed", "display_type": "number", "value": 50 }
+  ]
+}
